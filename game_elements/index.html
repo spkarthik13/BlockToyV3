@@ -36,7 +36,7 @@
             <button id="startButton">Start Time</button>
             <button id="stopButton">Stop Time</button>
             <button id="submitButton">Submit Time</button>
-            <input type="text" id="nameSubmit">
+            <input type="text" id="nameSubmit" placeholder="Enter Your Name">
         </div>
         <div id="winText">Congratulations, you've completed the puzzle!</div>
         <div id="instructionsContainer">
@@ -51,7 +51,20 @@
 
 </body>
 <script src="blockToyV2.js"></script>
-<script> $(document).ready( function() {
-    $("#winText").hide();
-}) </script>
+<script> 
+    $(document).ready( function() {
+        $("#winText").hide();
+    });
+
+    $('#startButton').on('click', function() {
+        startTimer();
+        addArrowClickEvents();
+        addVerticalClickSwap();
+    });
+
+    $('#stopButton').on('click', function() {
+        stopTime();
+        stopClickEvents();
+    });
+</script>
 </html>

@@ -53,11 +53,6 @@ function initializeGame() {
     });
 
     scrambleBoard();
-
-    // Add arrow events to rotate board.
-    addArrowClickEvents();
-    // Add vertical moving to tiles.
-    addVerticalClickSwap();
     // Add valid vertical move arrows.
     appendArrowImages();
 };
@@ -95,10 +90,6 @@ function addArrowClickEvents() {
             $(tileArray[rowIdx][5]).css('background-color', temp);
             appendArrowImages();
             winCheck();
-            if (stopwatchStatus == false && min == 0 && sec == 0 & hour == 0) {
-                stopwatchStatus = true;
-                startTimer();
-            };
         });
 
         // Right arrow rotation.
@@ -110,10 +101,6 @@ function addArrowClickEvents() {
             $(tileArray[rowIdx][0]).css('background-color', temp);
             appendArrowImages();
             winCheck();
-            if (stopwatchStatus == false && min == 0 && sec == 0 & hour == 0) {
-                stopwatchStatus = true;
-                startTimer();
-            };
         });
     }
 }
@@ -147,10 +134,6 @@ function addVerticalClickSwap() {
             }
             appendArrowImages();
             winCheck();
-            if (stopwatchStatus == false && min == 0 && sec == 0 & hour == 0) {
-                stopwatchStatus = true;
-                startTimer();
-            };   
         })
     })
 }
@@ -232,6 +215,7 @@ function startTimer() {
             updateTime(elapsedTime);
         }, 1000);
 }
+
 
 function stopTime() {
     stopwatchStatus == false;

@@ -17,6 +17,7 @@ let hour = 0;
 let startTime;
 let elapsedTime = 0;
 let timeInterval;
+let gameSolved = false;
 
 let tileArray = new Array(ROWS);
 let arrowTrackArray = new Array();
@@ -184,6 +185,7 @@ function winCheck() {
             return;
         }
     }
+    gameSolved = true;
     stopTime();
     $("#winText").fadeIn(500);
     stopClickEvents();
@@ -215,7 +217,6 @@ function startTimer() {
             updateTime(elapsedTime);
         }, 1000);
 }
-
 
 function stopTime() {
     stopwatchStatus == false;

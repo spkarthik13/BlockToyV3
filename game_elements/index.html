@@ -36,7 +36,7 @@
             <button id="startButton">Start Time</button>
             <button id="stopButton">Stop Time</button>
             <button id="submitButton">Submit Time</button>
-            <input type="text" id="nameSubmit" placeholder="Enter Your Name">
+            <input type="text" id="nameSubmit">
         </div>
         <div id="winText">Congratulations, you've completed the puzzle!</div>
         <div id="instructionsContainer">
@@ -65,6 +65,18 @@
     $('#stopButton').on('click', function() {
         stopTime();
         stopClickEvents();
+    });
+
+    $('#submitButton').on('click', function() {
+        if ($('#nameSubmit').val() == '') {
+            alert('You must include a name to be submitted!')
+        }
+        else if ($('#nameSubmit').val().length <= 2) {
+            alert("Name entered is of 2 or less characters, please reenter.")
+        }
+        else if (!gameSolved) {
+            alert("You can't submit the game without completing it first!");
+        }
     });
 </script>
 </html>

@@ -1,0 +1,177 @@
+body {
+    margin: 0;
+    background-color:honeydew;
+}
+
+.mainContainer {
+    height: 100%;
+    display: grid;
+    grid-template-columns: .5fr 2fr .5fr;
+    grid-template-rows: .25fr 1.75fr;
+    grid-template-areas:  
+    "leftWrapper header rightWrapper"
+    "leftWrapper gameContainer rightWrapper"
+    "leftWrapper stopwatch rightWrapper"
+    "leftWrapper timeButtons rightWrapper"
+    "leftWrapper winText rightWrapper"
+    "leftWrapper instructionsContainer rightWrapper";
+}
+
+#leftWrapper {
+    grid-area: leftWrapper;
+}
+
+#rightWrapper {
+    grid-area: rightWrapper;
+}
+
+#header {
+    grid-area: header;
+    font-family: 'Lobster', 'Times New Roman';
+    font-size: 7vh;
+    text-align: center;
+}
+
+#winText {
+    grid-area: winText;
+    font-family: 'Lobster', 'Times New Roman';
+    font-size: 5vh;
+    text-align: center;
+}
+
+#stopwatch {
+    grid-area: stopwatch;
+    font-family: 'Lobster', 'Times New Roman';
+    font-size: 7vh;
+    text-align: center;
+    user-select: none;
+}
+
+/* Game Container */ 
+
+#gameContainer {
+    grid-area: gameContainer;
+    display: grid;
+    grid-template-columns: .25fr 1fr .25fr;
+    grid-template-areas: 
+    "leftArrows blocks rightArrows" 
+}
+
+#blocks {
+    display: grid;
+    grid-area: blocks;
+    margin: -10px;
+    padding-top: 6vh;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+/* Inner Arrow Grids */
+
+#leftArrows {
+    grid-area: leftArrows;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas: 
+    "leftArrow1"
+    "leftArrow2"
+    "leftArrow3";
+    padding-top: 20px;
+}
+
+.leftArrow {
+    content: url("./images/left.png");
+    max-height: 18vh;
+}
+
+#rightArrows {
+    grid-area: rightArrows;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas: 
+    "rightArrow1"
+    "rightArrow2"
+    "rightArrow3";
+    padding-top: 20px;
+}
+
+.rightArrow {
+    content: url("./images/right.png");
+    max-height: 18vh;
+}
+
+/* End Inner Arrow Grids */
+
+/* Instructions */
+
+#instructionsTitle {
+    font-family: 'Lobster', 'Times New Roman';
+    font-size: 7vh;
+    text-align: center;
+    margin-bottom: 0%;
+    margin-top: 0%;
+    user-select: none;
+}
+
+p {
+    font-family: 'Lobster', 'Times New Roman';
+    font-size: 2vh;
+    text-align: center;
+    user-select: none;
+}
+
+/* End of Instructions */
+
+/* Directional Game Arrows */
+
+.upArrow {
+    content: url("./images/up.png");
+    max-height: 5vh;
+    max-width: 5vh;
+}
+
+.downArrow {
+    content: url("./images/down.png");
+    max-height: 5vh;
+    max-width: 5vh;
+}
+
+/* Time Buttons */
+
+#timeButtons {
+    grid-area: timeButtons;
+    display: grid;
+    grid-template-areas: 
+    'startButton stopButton submitButton'
+    '. . nameSubmit';
+    padding-top: 2vh;
+}
+
+#startButton {
+    grid-area: startButton;
+    height: 5vh;
+    width: 20vh;
+    margin: auto;
+}
+
+#stopButton {
+    grid-area: stopButton;
+    height: 5vh;
+    width: 20vh;
+    margin: auto;
+}
+
+#submitButton {
+    grid-area: submitButton;
+    height: 5vh;
+    width: 20vh;
+    margin: auto;
+}
+
+#nameSubmit {
+    grid-area: nameSubmit;
+    margin: auto;
+}
+

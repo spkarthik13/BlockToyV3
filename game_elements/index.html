@@ -12,7 +12,6 @@
 </head>
 
 <body>
-
     <div class="mainContainer">
         <div id="leftWrapper"></div>
         <div id="header" class="header">Aaron's Block Toy V2</div>
@@ -36,7 +35,7 @@
             <button id="startButton">Start Time</button>
             <button id="stopButton">Stop Time</button>
             <button id="submitButton">Submit Time</button>
-            <input type="text" id="nameSubmit">
+            <input type="text" id="nameSubmit" name="name">
         </div>
         <div id="winText">Congratulations, you've completed the puzzle!</div>
         <div id="instructionsContainer">
@@ -54,6 +53,7 @@
 <script> 
     $(document).ready( function() {
         $("#winText").hide();
+        $('#submitButton').prop('disabled',true);
     });
 
     $('#startButton').on('click', function() {
@@ -67,16 +67,5 @@
         stopClickEvents();
     });
 
-    $('#submitButton').on('click', function() {
-        if ($('#nameSubmit').val() == '') {
-            alert('You must include a name to be submitted!')
-        }
-        else if ($('#nameSubmit').val().length <= 2) {
-            alert("Name entered is of 2 or less characters, please reenter.")
-        }
-        else if (!gameSolved) {
-            alert("You can't submit the game without completing it first!");
-        }
-    });
 </script>
 </html>

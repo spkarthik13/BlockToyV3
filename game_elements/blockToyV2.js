@@ -189,6 +189,7 @@ function winCheck() {
     stopTime();
     $("#winText").fadeIn(500);
     stopClickEvents();
+    $('#submitButton').prop('disabled',false);
 }
 
 // Used the timer I made from the previous project as I felt the way it is implemented is sufficient.
@@ -234,3 +235,31 @@ function stopClickEvents() {
         }
     }
 };
+
+// Submit button functionality.
+
+$('#submitButton').on('click', function() {
+    if ($('#nameSubmit').val() == '') {
+        alert('You must include a name to be submitted!')
+    }
+    else if ($('#nameSubmit').val().length <= 2) {
+        alert("Name entered is of 2 or less characters, please reenter.")
+    }
+    else if (!gameSolved) {
+        alert("You can't submit the game without completing it first!");
+    }
+    postToHighscores();
+});
+
+function postToHighscores() {
+    let nameInput = $("#nameSubmit").val();
+    let scoreInput = $("#stopwatch").html();
+
+    $.ajax({
+        url: '/api/highscores',
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify( {"name": nameInput, "score": scoreInput})
+    })
+};
+

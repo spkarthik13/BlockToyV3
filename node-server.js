@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 
 // Initialize static resources.
 app.use(express.static('./game_elements'));
+app.use(express.json());
 
 // Constants.
 const PORT = process.env.PORT || 5000;
@@ -24,6 +25,19 @@ app.get('/', (req, res) => {
     res.sendFile(path.resolve(__dirname, './game_elements'));
 });
 
+const highscores = [
+    { name: 'Aaron', score: 1},
+];
+
+app.post('/api/highscores', (req, res) => {
+    const highscore = {
+        name: req.body.name,
+        score: req.body.score
+    }
+    highscores.push(highscore);
+    res.send(highscores);
+});
+
 app.all('*', (req, res) => {
     res.status(404).send('<h1> 404 - Page Not Found </h1>');
 });
@@ -31,4 +45,3 @@ app.all('*', (req, res) => {
 app.listen(PORT || 5000, () => {
     console.log(`User hit the server on port ${PORT}`);
 });
-
